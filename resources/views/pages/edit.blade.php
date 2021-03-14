@@ -8,28 +8,28 @@
 @endif
 
 <div class="panel panel-success">
-		<div class="panel-heading">Edit Stock</div>
+		<div class="panel-heading">Edit Product</div>
 		<form action="/update" method="post" onsubmit="return showLoad('Update Data?')">
       {{ csrf_field() }}
 		<div class="panel-body">
 
       <div class="form-group {{ $errors->has('stype') ? 'has-error' : '' }}">
-  			<label class="label-control">Stock Type</label>
+  			<label class="label-control">Select category</label>
   			<select name="stype" class="form-control" required="required">
-  				<option value=''>Please choose stock type</option>
+  				<option value=''>Please choose category</option>
   			<?php
 
-  				$types = array('T-Shirt','Sweater','Jacket','Formal Shirt');
+  				// $types = array('T-Shirt','Sweater','Jacket','Formal Shirt');
 
-  				foreach($types as $types)
+  				foreach($category as $category)
   				{
-  					if($editstock->stk_type == $types)
+  					if($editstock->stk_type == $category->id)
   					{
-  						echo "<option value='$types' selected>$types</option>";
+  						echo "<option value='$category->id' selected>$category->category_name</option>";
   					}
   					else
   					{
-  						echo "<option value='$types'>$types</option>";
+  						echo "<option value='$category->id'>$category->category_name</option>";
   					}
   				}
   			?>
@@ -51,10 +51,10 @@
         @endif
 			</div>
 
-			<div class="col-md-3">
+			<div class="col-md-3 hidden">
         <div class="form-group {{ $errors->has('ssize') ? 'has-error' : '' }}">
     			<label class="label-control">Stock Size</label>
-    			<select name="ssize" class="form-control" required="required">
+    			<select name="ssize" class="form-control" >
     				<option value=''>Please choose stock size</option>
     				<?php
     					$size = array('S','M','L','XL');
@@ -80,10 +80,10 @@
 			</div>
 
 
-			<div class="col-md-2">
+			<div class="col-md-2 hidden">
         <div class="form-group {{ $errors->has('squantity') ? 'has-error' : '' }}">
     			<label class="label-control">Stock Quantity</label>
-    			<input type="number" name="squantity" class="form-control" required="required" placeholder="Insert quantity" value="{{$editstock->stk_qty}}">
+    			<input type="number" name="squantity" class="form-control" placeholder="Insert quantity" value="{{$editstock->stk_qty}}">
     			@if ($errors->has('squantity'))
               <span class="help-block alert alert-danger">
                   <strong>{{ $errors->first('squantity') }}</strong>

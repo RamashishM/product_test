@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Simple CRUD Laravel</title>
+	<title>Laravel Test</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -20,14 +20,16 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	     <a class="navbar-brand" href="#">Simple CRUD Laravel</a>
+	     <a class="navbar-brand" href="#">Laravel Test</a>
 	    </div>
 
 	    <div class="collapse navbar-collapse">
 	      <ul class="nav navbar-nav">
-	        <li {{{ (Request::is('home') ? 'class=active' : '') }}}><a href="/home" >Insert Stocks</a></li>
-	        <li {{{ (Request::is('view') ? 'class=active' : '') }}}><a href="/view" >View Stocks</a></li>
-	        <li {{{ (Request::is('search') ? 'class=active' : '') }}}><a href="/search" >Search Stocks</a></li>
+	        <li {{{ (Request::is('createcategory') ? 'class=active' : '') }}}><a href="/createcategory" >Add Category</a></li>
+	        <li {{{ (Request::is('viewcategory') ? 'class=active' : '') }}}><a href="/viewcategory" >View Category</a></li>
+	        <li {{{ (Request::is('home') ? 'class=active' : '') }}}><a href="/home" >Insert Products</a></li>
+	        <li {{{ (Request::is('view') ? 'class=active' : '') }}}><a href="/view" >View Products</a></li>
+	        <li {{{ (Request::is('search') ? 'class=active' : '') }}}><a href="/search" >Search Products</a></li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
 	        <li class="dropdown">
@@ -56,10 +58,6 @@
 
 	@yield('content')
 
-</div>
-
-<div class="footer" style="text-align:center">
-Simple CRUD Web App using Laravel Framework. Dev by Afif Zafri.
 </div>
 
 <div class="overlay">
